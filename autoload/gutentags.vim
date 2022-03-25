@@ -606,6 +606,7 @@ if has('nvim')
     function! gutentags#build_default_job_options(module) abort
        " Neovim kills jobs on exit, which is what we want.
        let l:job_opts = {
+                \'detach': 1,
                 \'on_exit': function(
                 \    '<SID>nvim_job_exit_wrapper',
                 \    ['gutentags#'.a:module.'#on_job_exit']),
